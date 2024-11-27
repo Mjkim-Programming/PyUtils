@@ -40,3 +40,17 @@ class changeFrom:
             except:
                 throwError(f"{self.inp} Cannot Be Turned Into INT TYPE")
         return self.inp
+
+def Get(link):
+    def decoratedGet(func):
+        print(link)
+        func()
+    return decoratedGet
+
+def OnError(fallback):
+    def decoratedErrorHandler(func):
+        try:
+            func()
+        except:
+            fallback()
+    return decoratedErrorHandler
